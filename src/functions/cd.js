@@ -1,0 +1,1 @@
+const cd = (directory) => process.chdir(directory)
