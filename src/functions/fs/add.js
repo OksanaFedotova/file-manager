@@ -1,6 +1,6 @@
 import { open } from 'node:fs/promises';
 import { cwd } from "node:process";
-import consoleError from '../utils/consoleError.js';
+import consoleError from '../../utils/consoleError.js';
 
 export default async (name) => {
   try {

@@ -1,4 +1,5 @@
 import { rename } from 'node:fs/promises';
+import consoleError from '../../utils/consoleError.js';
 
 export default async (pathWrongName, newName) => {
   const path = pathWrongName.split('/');

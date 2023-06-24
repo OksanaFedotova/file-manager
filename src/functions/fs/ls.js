@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { cwd } from "node:process";
-import consoleError from '../utils/consoleError.js';
+import consoleError from '../../utils/consoleError.js';
 
 export default async () => {
   try {

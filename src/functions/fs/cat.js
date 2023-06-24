@@ -1,6 +1,6 @@
 import fs from 'fs';
-import streamAsPromise from '../utils/streamAsPromise.js';
-import consoleError from '../utils/consoleError.js';
+import streamAsPromise from '../../utils/streamAsPromise.js';
+import consoleError from '../../utils/consoleError.js';
 
 export default async (file) => {
   try {

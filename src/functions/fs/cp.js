@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { pipeline } from "node:stream/promises";
-import consoleError from '../utils/consoleError.js';
+import consoleError from '../../utils/consoleError.js';
 
 export default async (pathToFile, pathToNewDir, log = true) => {
   const fileName = pathToFile.split('/').pop();

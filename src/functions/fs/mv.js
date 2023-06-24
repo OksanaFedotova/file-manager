@@ -1,5 +1,6 @@
 import { unlink } from 'node:fs/promises';
 import cp from './cp.js';
+import consoleError from '../../utils/consoleError.js';
 
  export default async (pathToFile, pathToNewDir) => {
   try {
