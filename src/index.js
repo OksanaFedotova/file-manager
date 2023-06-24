@@ -10,17 +10,22 @@ import getCommand from './utils/getCommand.js';
 const start = () => {
   const userHomeDir = os.homedir();
   chdir(userHomeDir);
-  const userNameArr = process.argv[2].split('=');
-  const userName = userNameArr[userNameArr.length - 1];
+  const userNameArr = process.argv[2] ? process.argv[2].split('=') : '';
+  const userName = userNameArr[userNameArr.length - 1] || '';
   logWelcome(userName);
   logCWD();
   const rl = readline.createInterface({ input, output });
-  rl.on('line', (line) => { 
+  rl.on('line', async (line) => { 
     if(line === '.exit') {
       exit(userName);
     } else {
-      getCommand(line)();
-      logCWD();
+      if (typeof getCommand(line) !== 'function') {
+        console.error('Invalid input');
+      } else {
+        const command = getCommand(line);
+        await command();
+        logCWD();
+      }
     }
   });
   rl.on('close', () => exit(userName));

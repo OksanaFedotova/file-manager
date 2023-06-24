@@ -1,2 +1,8 @@
-import { chdir } from 'node:process';
-export default () => chdir('..');
+export default () => {
+  try {
+    process.chdir('..');
+  } catch (error) {
+    console.error(error);
+    consoleError();
+  }
+}
