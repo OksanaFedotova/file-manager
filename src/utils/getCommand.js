@@ -19,8 +19,8 @@ import prepareArgs from "./prepareArgs.js"
 export default (line) => {
   const index = line.indexOf(' ') !== -1 ? line.indexOf(' ') : line.length;
   let command = line.slice(0, index);
-  const args = prepareArgs(line.slice(index));
-  if (args[0].includes('--')) {
+  const args = prepareArgs(line.slice(index).replaceAll(`"`, "'"));
+  if (args[0]?.includes('--')) {
     command =  args[0].replaceAll('--', '') ;
   }
   const commands = {
