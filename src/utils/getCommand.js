@@ -14,10 +14,15 @@ import username from "../functions/os/username.js"
 import hash from "../functions/hash/hash.js"
 import compress from "../functions/zlib/compress.js"
 import decompress from "../functions/zlib/decompress.js"
+import prepareArgs from "./prepareArgs.js"
 
 export default (line) => {
-  let [command, ...args] = line.split(' ');
-  command = args[0]?.includes('--') ? args[0].replace('--', '') : command
+  const index = line.indexOf(' ') !== -1 ? line.indexOf(' ') : line.length;
+  let command = line.slice(0, index);
+  const args = prepareArgs(line.slice(index));
+  if (args[0].includes('--')) {
+    command =  args[0].replaceAll('--', '') ;
+  }
   const commands = {
     'up': up,
     'cd': () => cd(...args),
