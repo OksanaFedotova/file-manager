@@ -3,6 +3,7 @@ import zlib from 'zlib';
 import consoleError from '../../utils/consoleError.js';
 import checkAccess from '../../utils/checkAccess.js';
 import consoleExist from '../../utils/consoleExist.js';
+import path from "path";
 
 export default async (pathToFile, pathToDestination) => {
   return new Promise(async (resolve, reject) => {
@@ -12,7 +13,7 @@ export default async (pathToFile, pathToDestination) => {
       console.error(error.message);
       consoleError();
     });
-    const fileCompressed = `${pathToDestination}/${fileName}.br`;
+    const fileCompressed = path.resolve(`${pathToDestination}/${fileName}.br`);
     if (!await checkAccess(fileCompressed)) {
         const writeStream = fs.createWriteStream(fileCompressed);
         writeStream.on('error', (error) => {

@@ -9,6 +9,7 @@ import mv from "../functions/fs/mv.js"
 import rm from "../functions/fs/rm.js"
 import eol from "../functions/os/eol.js";
 import cpus from "../functions/os/cpus.js"
+import architecture from "../functions/os/architecture.js"
 import homedir from "../functions/os/homedir.js"
 import username from "../functions/os/username.js"
 import hash from "../functions/hash/hash.js"
@@ -33,7 +34,8 @@ export default (line) => {
     'cp': () => cp(...args),
     'mv': () => mv(...args), 
     'rm': () => rm(...args),
-    'eol': () => eol(),
+    'EOL': () => eol(),
+    'architecture': () => architecture(),
     'cpus': () => cpus(),
     'homedir': () => homedir(),
     'username': () => username(),
